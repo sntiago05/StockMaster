@@ -4,14 +4,14 @@
       "id": 1,
       "name": "MacBook Pro M2",
       "price": 1999,
-      "stock": 15,
+      "stock": 2,
       "description": "Powerful laptop for development and design."
     },
     {
       "id": 2,
       "name": "Logitech MX Master 3S Mouse",
-      "price": 99,
-      "stock": 5,
+      "price": 120,
+      "stock": 20,
       "description": "Advanced ergonomic mouse with infinite scroll."
     },
     {
@@ -72,7 +72,7 @@
     },
     {
       "id": 11,
-      "name": "Amazon Echo Dot 5th Gen",
+      "name": "Amazon Echo Dot  Gen",
       "price": 49,
       "stock": 20,
       "description": "Smart speaker with Alexa voice assistant."
@@ -83,13 +83,6 @@
       "price": 129,
       "stock": 4,
       "description": "Fast portable SSD for backups and development."
-    },
-    {
-      "name": "mosue",
-      "price": 10,
-      "stock": 1,
-      "description": "adjbsqhjcvbzhcvxzhcbzcxz",
-      "id": 13
     }
   ]
 }

@@ -99,9 +99,28 @@ export async function updateProduct(id, updates) {
         return undefined
     }
 }
-
+/**
+ * 
+ * @param {number} id
+ * @returns {Promise<Product|undefined>} 
+ */
+export async function getProductById(id) {
+    try {
+        const response = await fetch(`${API_URL}/products/${id}`)
+        if (!response.ok) throw new Error("Cant get product")
+        return await response.json() || undefined
+    } catch (error) {
+        console.log(error);
+        return undefined
+    }
+}
+/**
+ * 
+ * @param {string} name 
+ * @returns {Promise <Product| undefined>}
+ */
 export async function productExists(name) {
     const products = await getProducts()
-    return roducts.find(
+    return products.find(
         p => p.name.trim().toLowerCase() === name.trim().toLowerCase())
 }

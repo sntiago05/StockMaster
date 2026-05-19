@@ -6,8 +6,10 @@ import {
     createProduct,
     deleteProduct,
     getPaginatedProducts,
+    getProductById,
     getProducts,
-    productExists
+    productExists,
+    updateProduct
 } from "./requests/products";
 
 
@@ -29,6 +31,8 @@ const $btnBack = document.querySelector("#btn-back");
 const $paginationInfo = document.querySelector("#pagination-info");
 const $search = document.querySelector("#search")
 const $productForm = document.querySelector("#product-form")
+const $btnForm = document.querySelector("#btn-form")
+let productId = null
 let search = ""
 let currentPage = 1;
 const limit = 3;
@@ -59,25 +63,7 @@ function addEvents() {
 
     $productForm.addEventListener("submit", async (e) => {
         e.preventDefault()
-        const dataRaw = Object.fromEntries(new FormData($productForm))
-        const product = {
-            ...dataRaw,
-            price: Number(dataRaw.price),
-            stock: Number(dataRaw.stock)
-        }
-        exists = productExists(product.name)
-        if (exists) {
-            createModal(false, "Product exists")
-            return
-        }
-        const response = await createProduct(product)
-        if (response) {
-            createModal(true, `name: ${response.name}`)
-        } else {
-            createModal(false, `error creating product`)
-        }
-        await fetchInfo()
-        $productForm.reset()
+        await handleCreateUpdateProducts()
     })
 }
 
@@ -111,10 +97,54 @@ async function handleInventoryActions(e) {
         return;
     }
     if (action === "edit") {
-        console.log("editar", id);
+        const product = await getProductById(id)
+        if (!product) {
+            createModal(false, "Cant get product")
+            return
+        }
+        productId = product.id
+        $productForm.elements["name"].value = product.name
+        $productForm.elements["description"].value = product.description
+        $productForm.elements["price"].value = product.price
+        $productForm.elements["stock"].value = product.stock
+        $btnForm.textContent = "Update Product"
+
     }
 }
 
+async function handleCreateUpdateProducts() {
+    const dataRaw = Object.fromEntries(new FormData($productForm))
+    const product = {
+        ...dataRaw,
+        price: Number(dataRaw.price),
+        stock: Number(dataRaw.stock)
+    }
+    if (!productId) {
+        const exists = await productExists(product.name)
+        if (exists) {
+            createModal(false, "Product exists")
+            return
+        }
+        const response = await createProduct(product)
+        if (response) {
+            createModal(true, `name: ${response.name}`)
+        } else {
+            createModal(false, `error creating product`)
+        }
+    } else {
+        const response = await updateProduct(productId, product)
+        if (!response) {
+            createModal(false, "Cant Update Product")
+            return
+        }
+        createModal(true, "Product Updated")
+        $btnForm.textContent = "Create Product"
+
+    }
+    $productForm.reset()
+    productId = null
+    await fetchInfo()
+}
 
 async function nextPage() {
     if (currentPage >= maxPage) return;
