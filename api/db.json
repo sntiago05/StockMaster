@@ -1,0 +1,95 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "MacBook Pro M2",
+      "price": 1999,
+      "stock": 15,
+      "description": "Powerful laptop for development and design."
+    },
+    {
+      "id": 2,
+      "name": "Logitech MX Master 3S Mouse",
+      "price": 99,
+      "stock": 5,
+      "description": "Advanced ergonomic mouse with infinite scroll."
+    },
+    {
+      "id": 3,
+      "name": "Keychron K2 Keyboard",
+      "price": 122,
+      "stock": 3,
+      "description": "Wireless mechanical keyboard with backlight."
+    },
+    {
+      "id": 4,
+      "name": "Dell UltraSharp 27 Monitor",
+      "price": 349,
+      "stock": 8,
+      "description": "27-inch 4K professional monitor for designers."
+    },
+    {
+      "id": 5,
+      "name": "iPhone 15 Pro",
+      "price": 1199,
+      "stock": 12,
+      "description": "Latest Apple smartphone with A17 chip."
+    },
+    {
+      "id": 6,
+      "name": "Samsung Galaxy S24",
+      "price": 1099,
+      "stock": 4,
+      "description": "High-end Android smartphone with AI features."
+    },
+    {
+      "id": 7,
+      "name": "Sony WH-1000XM5 Headphones",
+      "price": 399,
+      "stock": 2,
+      "description": "Industry-leading noise cancelling headphones."
+    },
+    {
+      "id": 8,
+      "name": "HP LaserJet Pro Printer",
+      "price": 249,
+      "stock": 6,
+      "description": "Fast and efficient office laser printer."
+    },
+    {
+      "id": 9,
+      "name": "ASUS ROG Strix GPU",
+      "price": 799,
+      "stock": 7,
+      "description": "High performance graphics card for gaming and AI."
+    },
+    {
+      "id": 10,
+      "name": "Apple iPad Air",
+      "price": 699,
+      "stock": 10,
+      "description": "Lightweight tablet for productivity and creativity."
+    },
+    {
+      "id": 11,
+      "name": "Amazon Echo Dot 5th Gen",
+      "price": 49,
+      "stock": 20,
+      "description": "Smart speaker with Alexa voice assistant."
+    },
+    {
+      "id": 12,
+      "name": "External SSD Samsung T7 1TB",
+      "price": 129,
+      "stock": 4,
+      "description": "Fast portable SSD for backups and development."
+    },
+    {
+      "name": "mosue",
+      "price": 10,
+      "stock": 1,
+      "description": "adjbsqhjcvbzhcvxzhcbzcxz",
+      "id": 13
+    }
+  ]
+}
